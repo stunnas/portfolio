@@ -2,14 +2,14 @@ import '@/app/styles.css';
 import './tools.css';
 import React from 'react';
 import Head from 'next/head';
-import Header from '@/components/header/header.js';
+import Header from '@/components/reusable-items/header/header.js';
 import ToolContainer from '@/components/tool-container/toolContainer';
-import WordAssistantSVG from '@/components/icons/wordAssistantSVG';
-import ImageEditorSVG from '@/components/icons/imageEditorSVG';
-import TypingSpeedSVG from '@/components/icons/typingSpeedSVG';
-import APITesterSVG from '@/components/icons/apiTesterSVG';
-import WorldClockSVG from '@/components/icons/worldClockSVG';
-import DailyAffirmationSVG from '@/components/icons/dailyAffirmationSVG';
+import WordAssistantSVG from '@/components/reusable-items/icons/wordAssistantSVG';
+import ImageEditorSVG from '@/components/reusable-items/icons/imageEditorSVG';
+import TypingSpeedSVG from '@/components/reusable-items/icons/typingSpeedSVG';
+import APITesterSVG from '@/components/reusable-items/icons/apiTesterSVG';
+import WorldClockSVG from '@/components/reusable-items/icons/worldClockSVG';
+import DailyAffirmationSVG from '@/components/reusable-items/icons/dailyAffirmationSVG';
 
 export default function Tools() {
   return (

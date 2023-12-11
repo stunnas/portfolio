@@ -1,8 +1,8 @@
 import '@/app/styles.css';
 import React from 'react';
 import Head from 'next/head';
-import Header from '@/components/header/header.js';
-import ImageEditorSVG from '@/components/icons/imageEditorSVG';
+import Header from '@/components/reusable-items/header/header.js';
+import ImageEditorSVG from '@/components/reusable-items/icons/imageEditorSVG';
 
 export default function ImageEditor() {
   return (

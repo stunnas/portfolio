@@ -1,8 +1,8 @@
 import '@/app/styles.css';
 import React from 'react';
 import Head from 'next/head';
-import Header from '@/components/header/header.js';
-import TypingSpeedSVG from '@/components/icons/typingSpeedSVG';
+import Header from '@/components/reusable-items/header/header.js';
+import TypingSpeedSVG from '@/components/reusable-items/icons/typingSpeedSVG';
 
 export default function TypingSpeedTest() {
   return (

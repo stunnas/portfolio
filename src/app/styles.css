@@ -4,6 +4,9 @@
     --secondary-color: #CDD6DD;
 
     --header-height: 50px;
+
+    --main-font-size: 24px;
+    --secondary-font-size: 18px;
 }
 * {
     margin: 0;
@@ -24,3 +27,15 @@ body {
     margin-top: 50px; 
 }
 
+.toolTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--secondary-font-size);
+    gap: 10px;
+}
+
+.toolTitle svg {
+    height: var(--main-font-size);
+    width: auto;
+}

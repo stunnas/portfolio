@@ -1,8 +1,8 @@
 import '@/app/styles.css';
 import React from 'react';
 import Head from 'next/head';
-import Header from '@/components/header/header.js';
-import DailyAffirmationSVG from '@/components/icons/dailyAffirmationSVG';
+import Header from '@/components/reusable-items/header/header.js';
+import DailyAffirmationSVG from '@/components/reusable-items/icons/dailyAffirmationSVG';
 
 export default function DailyAffirmation() {
   return (

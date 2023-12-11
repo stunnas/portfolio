@@ -1,7 +1,7 @@
 import './header.css';
 import React from 'react';
 import Link from 'next/link';
-import DownloadSVG from '@/components/icons/downloadSVG';
+import DownloadSVG from '@/components/reusable-items/icons/downloadSVG';
 
 const Header = () => {
     return (
