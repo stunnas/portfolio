@@ -1,0 +1,32 @@
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.choiceContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.choiceContainer img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.choiceContainer h2 {
+    color: red;
+    margin: 10px 0px 0px 0px;
+}
+
+.choiceContainer p {
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+}
+
+.choiceContainer button {
+    padding: 20px;
+}

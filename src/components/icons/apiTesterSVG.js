@@ -1,0 +1,9 @@
+import React from 'react';
+
+const APITesterSVG = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="81" height="81" viewBox="0 0 81 81" fill="none">
+        <path d="M13.4167 67.5833C21.75 75.9167 33.2083 70.7083 36.3333 67.5833L42.5833 61.3333L19.6667 38.4167L13.4167 44.6667C10.2917 47.7917 5.08333 59.25 13.4167 67.5833ZM13.4167 67.5833L3 78M67.5833 13.4167C59.25 5.08333 47.7917 10.2917 44.6667 13.4167L38.4167 19.6667L61.3333 42.5833L67.5833 36.3333C70.7083 33.2083 75.9167 21.75 67.5833 13.4167ZM67.5833 13.4167L78 3M42.5833 23.8333L34.25 32.1667M57.1667 38.4167L48.8333 46.75" stroke="black" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
+export default APITesterSVG;
