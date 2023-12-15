@@ -2,11 +2,16 @@ import './header.css';
 import React from 'react';
 import Link from 'next/link';
 import DownloadSVG from '@/components/reusable-items/icons/downloadSVG';
+import Spinner from '../loaders/spinner/spinner';
 
 const Header = () => {
     return (
         <header>
-            <h1>CAA</h1>
+            <div className="logo">
+                <h1>CAA</h1>
+                <Spinner/>
+            </div>
+            
             <nav>
                 <Link href='/'>Home</Link>
                 <Link href='/projects'>Projects</Link>

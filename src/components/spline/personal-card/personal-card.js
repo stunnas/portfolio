@@ -1,6 +1,8 @@
 'use client';
+import dynamic from 'next/dynamic';
 import React, { useRef } from 'react';
-import Spline from '@splinetool/react-spline';
+import Spinner from '@/components/reusable-items/loaders/spinner/spinner';
+const Spline = dynamic(() => import('@splinetool/react-spline'), { suspense: true, loading: () => <Spinner/> });
 
 const PersonalCard = () => {
   const objectToAnimate = useRef();
@@ -22,11 +24,11 @@ const PersonalCard = () => {
   return (
     <>
       <Spline
-        style={{ width: '500px', height: '500px' }}
-        scene="https://prod.spline.design/UoOAPQ-q9Rirf8Js/scene.splinecode"
-        onLoad={onLoad}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+          style={{ width: '500px', height: '500px' }}
+          scene="https://prod.spline.design/UoOAPQ-q9Rirf8Js/scene.splinecode"
+          onLoad={onLoad}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
       />
     </>
   );

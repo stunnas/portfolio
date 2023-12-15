@@ -1,7 +1,11 @@
 import './styles.css';
-import React from 'react';
+import dynamic from 'next/dynamic';
+import React, { Suspense } from 'react';
 import Header from '@/components/reusable-items/header/header.js';
-import PersonalCard from '@/components/personal-card/personal-card';
+import Spinner from '@/components/reusable-items/loaders/spinner/spinner';
+const PersonalCard = dynamic(() => import('@/components/spline/personal-card/personal-card'), {
+  loading: () => <Spinner/>,
+});
 
 export default function Home() {
 

@@ -1,7 +1,9 @@
 import '@/app/styles.css';
+import './typingSpeed.css';
 import React from 'react';
 import Head from 'next/head';
 import Header from '@/components/reusable-items/header/header.js';
+import TypingSpeedTool from '@/components/typing-speed-tool/typingSpeedTool';
 import TypingSpeedSVG from '@/components/reusable-items/icons/typingSpeedSVG';
 
 export default function TypingSpeedTest() {
@@ -17,7 +19,8 @@ export default function TypingSpeedTest() {
             <h1>Typing Speed Test</h1>
             <TypingSpeedSVG/>
         </div>
-        
+        <p>Type the following text:</p>
+        <TypingSpeedTool/>
       </div>
     </>
   );

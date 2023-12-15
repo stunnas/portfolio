@@ -21,10 +21,38 @@ header {
     height: 50px;
 }
 
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo .spinner {
+    height: 22px;
+    width: 22px;
+    animation: spinner-y0fdc1 6s infinite ease;
+}
+
+.logo .spinner > div {
+    background-color: rgba(204, 251, 254, 0.2);
+    border: 1px solid var(--hover-bg-color);
+}
+.logo .spinner div:nth-of-type(1) {
+    transform: translateZ(-11px) rotateY(180deg);
+}
+.logo .spinner div:nth-of-type(6) {
+    transform: translateZ(11px);
+}
+
+
 header h1 {
     margin: 0;
     font-size: var(--header-font-size);
 }
+
+
 
 nav {
     display: flex;

@@ -1,0 +1,21 @@
+/* LoadingBar.css */
+.loading-bar-outer {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+  }
+  
+  .loading-bar-inner {
+    height: 5px;
+    width: 0;
+    background-color: #3498db;
+    border-radius: 5px;
+    animation: load 3s ease-in-out infinite;
+  }
+  
+  @keyframes load {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0; }
+  }
+  

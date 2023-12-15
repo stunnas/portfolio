@@ -29,4 +29,5 @@
 
 .choiceContainer button {
     padding: 20px;
+    cursor: pointer;
 }

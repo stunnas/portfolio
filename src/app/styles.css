@@ -27,10 +27,17 @@ body {
     margin-top: 50px; 
 }
 
+.spinnerContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .toolTitle {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
     font-size: var(--secondary-font-size);
     gap: 10px;
 }
@@ -39,3 +46,4 @@ body {
     height: var(--main-font-size);
     width: auto;
 }
+
