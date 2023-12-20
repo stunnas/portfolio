@@ -1,23 +1,23 @@
 import '@/app/styles.css';
+import './worldInfo.css'
 import React from 'react';
-import Head from 'next/head';
 import Header from '@/components/reusable-items/header/header.js';
 import WorldClockSVG from '@/components/reusable-items/icons/worldClockSVG';
+import WorldInfoTool from '@/components/tools/world-info-tool/worldInfoTool';
 
-export default function WorldClock() {
+export const metadata = {
+  title: 'World Info',
+}
+export default function WorldInfo() {
   return (
     <>
-      <Head>
-        <title>CAA - Tools - World Clock</title>
-        <script src="http://localhost:3000"></script>
-      </Head>
       <Header />
       <div className="mainBody">
         <div className="toolTitle">
-            <h1>World Clock</h1>
+            <h1>World Info</h1>
             <WorldClockSVG/>
         </div>
-        
+        <WorldInfoTool/>
       </div>
     </>
   );

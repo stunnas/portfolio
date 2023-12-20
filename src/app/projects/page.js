@@ -4,7 +4,7 @@ import './projects.css';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '@/components/reusable-items/header/header.js';
-import Spinner from '@/components/reusable-items/loaders/spinner/spinner';
+import Spinner from '@/components/reusable-items/loaders/spinners/main-spinner/spinner';
 
 export default function Projects() {
 

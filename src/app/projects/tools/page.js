@@ -44,8 +44,8 @@ export default function Tools() {
             />
             <ToolContainer
                 SvgComponent={WorldClockSVG}
-                title="World Clock"
-                linkHref="tools/world-clock"
+                title="World Info"
+                linkHref="tools/world-info"
             />
             <ToolContainer
                 SvgComponent={DailyAffirmationSVG}

@@ -1,7 +1,7 @@
 'use client';
 import dynamic from 'next/dynamic';
 import React, { useRef } from 'react';
-import Spinner from '@/components/reusable-items/loaders/spinner/spinner';
+import Spinner from '@/components/reusable-items/loaders/spinners/main-spinner/spinner';
 const Spline = dynamic(() => import('@splinetool/react-spline'), { suspense: true, loading: () => <Spinner/> });
 
 const PersonalCard = () => {

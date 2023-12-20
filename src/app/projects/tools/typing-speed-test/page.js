@@ -3,7 +3,7 @@ import './typingSpeed.css';
 import React from 'react';
 import Head from 'next/head';
 import Header from '@/components/reusable-items/header/header.js';
-import TypingSpeedTool from '@/components/typing-speed-tool/typingSpeedTool';
+import TypingSpeedTool from '@/components/tools/typing-speed-tool/typingSpeedTool';
 import TypingSpeedSVG from '@/components/reusable-items/icons/typingSpeedSVG';
 
 export default function TypingSpeedTest() {

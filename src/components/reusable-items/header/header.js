@@ -2,7 +2,7 @@ import './header.css';
 import React from 'react';
 import Link from 'next/link';
 import DownloadSVG from '@/components/reusable-items/icons/downloadSVG';
-import Spinner from '../loaders/spinner/spinner';
+import Spinner from '../loaders/spinners/main-spinner/spinner';
 
 const Header = () => {
     return (

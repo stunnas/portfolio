@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import ResetSVG from '../reusable-items/icons/resetSVG';
-import LoadingBar from '../reusable-items/loaders/loading-bar/loadingBar';
+import ResetSVG from '../../reusable-items/icons/resetSVG';
+import LoadingBar from '../../reusable-items/loaders/loading-bar/loadingBar';
 
 const defaultText = "This is a sample text for the typing speed test. Try to type this as accurately and quickly as you can.";
 
