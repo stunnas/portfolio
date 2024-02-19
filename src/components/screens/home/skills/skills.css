@@ -1,0 +1,211 @@
+@import 'swiper/css';
+@import 'swiper/css/bundle';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+.skills-title {
+  display: flex;
+  justify-content: center;
+}
+.skills-container {
+  width: 100%; 
+  max-width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.75); 
+  border-radius: 8px;
+  transition: height 2s ease;
+
+}
+
+.skills-background {
+  background: linear-gradient(-135deg, #ffddd3, #ffd6e7, #bcedff, #e5fff9, #ff8080);
+  background-size: 500% 500%;
+  animation: animatedBackground 10s ease infinite;
+}
+
+.swiper-container {
+  height: calc(100% - 40px);
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  overflow: hidden;
+
+}
+
+.swiper-slide {
+  background-color: #fff;
+  color: #333; 
+  text-align: center; 
+  font-size: 1.2em; 
+  border-radius: 4px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.75); 
+  cursor: grab;
+  transition: scale 2s ease, height 2s ease;
+}
+
+.slide-image {
+  filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.8));
+  transition: scale 1s ease;
+  user-select: none;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  margin: 0px 0px;
+  z-index: 10;
+  color: #333; 
+}
+
+.swiper-pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: -5px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #333; 
+}
+
+.skills-options {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 500px;
+  padding: 0px 5px;
+}
+
+.skills-options > h2, .autoplay-container {
+  padding: 0px 5px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.75); 
+}
+.autoplay-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.autoplay-toggle input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.autoplay-toggle {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  scale: 0.6;
+}
+
+
+.toggle-indicator {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 2.3em;
+  width: 2.3em;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: .4s;
+  border: 1px solid;
+}
+
+.toggle-indicator:hover {
+  box-shadow: inset 17px 17px 16px #494949,
+            inset -17px -17px 16px #9c9c9c;
+}
+.autoplay-toggle input:checked ~ .toggle-indicator {
+  box-shadow: none;
+  background-color: limegreen;
+  transform: rotateX(360deg);
+}
+
+.autoplay-toggle input:checked ~ .toggle-indicator:hover {
+  box-shadow: 3px 3px 3px rgba(0,0,0,1);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.toggle-indicator:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.autoplay-toggle input:checked ~ .toggle-indicator:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.autoplay-toggle .toggle-indicator:after {
+  left: 0.96em;
+  top: 0.7em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  box-shadow: 0.1em 0.1em 0em 0 rgba(0,0,0,0.3);
+  transform: rotate(45deg);
+}
+
+
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+
+  .skills-container {
+    height: 350px;
+    transition: height 2s ease;
+  }
+  .swiper-slide {
+    height: 25%;
+    scale: 2;
+    font-size: 1em;
+    transition: scale 2s ease, height 2s ease;
+  }
+  .slide-image {
+    scale: 0.35;
+    transition: scale 1s ease;
+  }
+  .swiper-wrapper {
+    align-items: center;
+  }
+  .skills-options {
+    justify-content: center;
+  }
+  .swiper-button-prev,
+  .swiper-button-next, 
+  .skills-options > h2 {
+    display: none; 
+  }
+
+  @media (max-width: 600px) {
+    .slide-image {
+      scale: 0.25;
+      transition: scale 1s ease;
+    }
+  }
+
+
+}

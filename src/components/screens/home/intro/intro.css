@@ -1,0 +1,13 @@
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.75); 
+}
+
+.intro-container h2 {
+    text-align: center;
+    width: 75%;
+}

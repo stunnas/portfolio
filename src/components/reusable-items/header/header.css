@@ -1,8 +1,9 @@
 /* header.css */
 
 :root {
-    --primary-bg-color: #333;
-    --text-color: white;
+    --main-color: #F6F2F2;
+    --secondary-color: #ECE9E9;
+    --text-color: black;
     --hover-color: #9abdbf;
     --hover-bg-color: #CCFBFE;
     --nav-link-size: 18px;
@@ -11,7 +12,9 @@
 }
 
 header {
-    background-color: var(--primary-bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
     color: var(--text-color);
     padding: 10px 20px;
     display: flex;
@@ -19,6 +22,8 @@ header {
     align-items: center;
     width: 100%;
     height: 50px;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.75); 
 }
 
 .logo {
@@ -37,7 +42,7 @@ header {
 
 .logo .spinner > div {
     background-color: rgba(204, 251, 254, 0.2);
-    border: 1px solid var(--hover-bg-color);
+    border: 1px solid black;
 }
 .logo .spinner div:nth-of-type(1) {
     transform: translateZ(-11px) rotateY(180deg);
@@ -56,7 +61,10 @@ header h1 {
 
 nav {
     display: flex;
+    padding: 2.5px;
     gap: 50px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
 }
 
 nav a {
@@ -69,10 +77,12 @@ nav a {
     transition: color 0.3s, background-color 0.3s;
 }
 
-nav a:hover {
-    color: black;
+nav a.active {
     background-color: white;
-    border: 1px solid white;
+    border: 1px solid;
+}
+nav a:hover {
+    background-color: var(--hover-bg-color);
     cursor: pointer;
     transition: color 0.3s, background-color 0.3s;
 }

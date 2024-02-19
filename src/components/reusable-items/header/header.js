@@ -1,10 +1,16 @@
+'use client';
+
 import './header.css';
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 import DownloadSVG from '@/components/reusable-items/icons/downloadSVG';
 import Spinner from '../loaders/spinners/main-spinner/spinner';
 
 const Header = () => {
+    const pathname = usePathname()
+    const isActive = (href) => pathname === href;
+
     return (
         <header>
             <div className="logo">
@@ -13,9 +19,10 @@ const Header = () => {
             </div>
             
             <nav>
-                <Link href='/'>Home</Link>
-                <Link href='/projects'>Projects</Link>
-                <Link href='/contact'>Contact</Link>
+                <Link href='/' className={isActive('/') ? 'active' : ''}>Home</Link>
+                <Link href='/projects' className={isActive('/projects') ? 'active' : ''}>Projects</Link>
+                <Link href='/about' className={isActive('/about') ? 'active' : ''}>About</Link>
+                <Link href='/contact' className={isActive('/contact') ? 'active' : ''}>Contact</Link>
             </nav>
             <button>Resume
                 <DownloadSVG/>

@@ -1,0 +1,19 @@
+.canvas-wrapper {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    border: 5px solid black;
+    background-color: rgb(162, 153, 153);
+}
+
+.canvas-wrapper canvas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

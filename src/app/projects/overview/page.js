@@ -8,7 +8,7 @@ export default function Overview() {
     <>
       <Header />
       <div className="mainBody">
-        
+        <Link href='overview/cookie'><button style={{margin: '100px'}}>Cookie Game</button></Link>
       </div>
     </>
   );
