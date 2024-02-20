@@ -33,8 +33,15 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
     const [selectedId, setSelectedId] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [isFlipping, setIsFlipping] = useState(false);
+    const [dragging, setDragging] = useState(false);
+    const [dragStartX, setDragStartX] = useState(0);
+    const [indicatorLeft, setIndicatorLeft] = useState(0);
+    const scrollerRef = useRef(null);
     const flipTimeoutRef = useRef(null);
     const pageCount = Math.ceil(items.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const itemsToShow = items.slice(startIndex, endIndex);
   
 
     const handleItemClick = (id) => {
@@ -64,13 +71,53 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
         setIsFlipping(false);
       }, 1000);
 
+      const tabWidth = scrollerRef.current.offsetWidth / pageCount;
+      setIndicatorLeft((Number(event.target.value) - 1) * tabWidth);
+
+    };
+
+    useEffect(() => {
+      const handleResize = () => {
+        // Recalculate the indicator position based on the new scroller width
+        const tabWidth = scrollerRef.current.offsetWidth / pageCount;
+        setIndicatorLeft((currentPage - 1) * tabWidth);
+      };
+    
+      window.addEventListener('resize', handleResize);
+    
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, [currentPage, pageCount]);
+
+    const onDragStart = (event) => {
+      setDragging(true);
+      setDragStartX(event.clientX - indicatorLeft);
+    };
+    
+    const onDragEnd = () => {
+      setDragging(false);
+      snapToClosestTab();
+    };
+    
+    const onDrag = (event) => {
+      if (dragging && event.clientX !== 0) { // Check to prevent the drag event with clientX = 0
+        const newLeft = event.clientX - dragStartX;
+        setIndicatorLeft(Math.max(0, Math.min(newLeft, scrollerRef.current.offsetWidth - scrollerRef.current.firstChild.offsetWidth)));
+      }
+    };
+    
+    const snapToClosestTab = () => {
+      // Assuming the tabs are of equal width
+      const tabWidth = scrollerRef.current.offsetWidth / pageCount;
+      const closestTab = Math.round(indicatorLeft / tabWidth);
+      setIndicatorLeft(closestTab * tabWidth);
+      setCurrentPage(closestTab + 1);
     };
 
     
 
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    const itemsToShow = items.slice(startIndex, endIndex);
+    
     
     return (
       <div className='projects-container'>
@@ -104,8 +151,17 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
                 </React.Fragment>
               ))}
 
-              <div className="indicator"></div>
-              <div className="scroller"></div>
+              <div className="indicator"/>
+              <div
+                className="scroller"
+                ref={scrollerRef}
+                draggable={true}
+                onDragStart={onDragStart}
+                onDragEnd={onDragEnd}
+                onDrag={onDrag}
+                style={{ left: `${indicatorLeft}px` }}              
+              />
+                
             </div>
           </div>
         </div>
