@@ -16,46 +16,55 @@ const gridItems = [
     id: 1,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 1',
+    description: 'Blank'
   },
   {
     id: 2,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 2',
+    description: 'Blank'
   },
   {
     id: 3,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 3',
+    description: 'Blank'
   },
   {
     id: 4,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 4',
+    description: 'Blank'
   },
   {
     id: 5,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 5',
+    description: 'Blank'
   },
   {
     id: 6,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 6',
+    description: 'Blank'
   },
   {
     id: 7,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 7',
+    description: 'Blank'
   },
   {
     id: 8,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 8',
+    description: 'Blank'
   },
   {
     id: 9,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 9',
+    description: 'Blank'
   },
 ];
 
