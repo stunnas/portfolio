@@ -37,6 +37,7 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
     const [dragStartX, setDragStartX] = useState(0);
     const [indicatorLeft, setIndicatorLeft] = useState(0);
     const scrollerRef = useRef(null);
+    const indicatorRef = useRef(null);
     const flipTimeoutRef = useRef(null);
     const pageCount = Math.ceil(items.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -45,7 +46,7 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
   
 
     const handleItemClick = (id) => {
-      setSelectedId(selectedId === id ? null : id); // Toggle the selected state
+      setSelectedId(selectedId === id ? null : id);
     };
 
     useEffect(() => {
@@ -93,6 +94,7 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
     const onDragStart = (event) => {
       setDragging(true);
       setDragStartX(event.clientX - indicatorLeft);
+      event.dataTransfer.setDragImage(new Image(0, 0), 0, 0); //non draggable image
     };
     
     const onDragEnd = () => {
@@ -101,18 +103,24 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
     };
     
     const onDrag = (event) => {
-      if (dragging && event.clientX !== 0) { // Check to prevent the drag event with clientX = 0
-        const newLeft = event.clientX - dragStartX;
-        setIndicatorLeft(Math.max(0, Math.min(newLeft, scrollerRef.current.offsetWidth - scrollerRef.current.firstChild.offsetWidth)));
+      if (dragging && event.clientX !== 0) {
+        if (scrollerRef.current && indicatorRef.current) {
+          const newLeft = event.clientX - dragStartX;
+          const maxLeft = scrollerRef.current.offsetWidth - indicatorRef.current.offsetWidth;
+          setIndicatorLeft(Math.max(0, Math.min(newLeft, maxLeft)));
+        }
       }
     };
     
     const snapToClosestTab = () => {
-      // Assuming the tabs are of equal width
       const tabWidth = scrollerRef.current.offsetWidth / pageCount;
       const closestTab = Math.round(indicatorLeft / tabWidth);
       setIndicatorLeft(closestTab * tabWidth);
       setCurrentPage(closestTab + 1);
+      setIsFlipping(true);
+      flipTimeoutRef.current = setTimeout(() => {
+        setIsFlipping(false);
+      }, 1000);
     };
 
     
@@ -151,15 +159,18 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
                 </React.Fragment>
               ))}
 
-              <div className="indicator"/>
+              <div className="indicator"
+                ref={indicatorRef}
+                draggable={true}
+                onDragStart={onDragStart}
+                onDrag={onDrag}
+                onDragEnd={onDragEnd}
+                style={{ left: `${indicatorLeft}px` }}   
+              />
               <div
                 className="scroller"
                 ref={scrollerRef}
-                draggable={true}
-                onDragStart={onDragStart}
-                onDragEnd={onDragEnd}
-                onDrag={onDrag}
-                style={{ left: `${indicatorLeft}px` }}              
+                draggable={false}       
               />
                 
             </div>

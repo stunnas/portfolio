@@ -15,20 +15,23 @@ const gridItems = [
   {
     id: 1,
     imageSrc: '/images/projects.jpg',
-    content: 'Content for item 1',
-    description: 'Blank'
+    content: 'Stunna Persona',
+    description: 'Explore Stunna Persona, my gym clothing brand.',
+    language: ['HTML', 'CSS', 'JS'],
   },
   {
     id: 2,
     imageSrc: '/images/projects.jpg',
-    content: 'Content for item 2',
-    description: 'Blank'
+    content: 'Sumdinger',
+    description: 'Simple dice game implemented',
+    language: ['Swift'],
   },
   {
     id: 3,
     imageSrc: '/images/projects.jpg',
-    content: 'Content for item 3',
-    description: 'Blank'
+    content: 'Qvardle',
+    description: 'Wordle variant with slightly different rules',
+    language: ['Swift'],
   },
   {
     id: 4,
