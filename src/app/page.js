@@ -54,17 +54,17 @@ const gridItems = [
   },
   {
     id: 6,
-    imageSrc: '/images/projects.jpg',
-    content: 'EU Reader',
+    imageSrc: '/images/projects/floaty-ball.webp',
+    content: 'Floaty Ball',
     description: 'Augmented reality application that displays useful information about Elon University by scanning image targets and displaying it as a book.',
-    language: ['C-Sharp'], 
+    language: ['Swift'], 
     link: '/contact/'
   },
 
   {
     id: 7,
-    imageSrc: '/images/projects.jpg',
-    content: 'Content for item 7',
+    imageSrc: '/images/projects/ships.webp',
+    content: 'Ships',
     description: 'Blank',
     language: ['Swift'], 
     link: '/contact/'
