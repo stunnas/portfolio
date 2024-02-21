@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import './gridShowcase.css';
 
 const ITEMS_PER_PAGE = 3;
@@ -6,19 +7,25 @@ const ITEMS_PER_PAGE = 3;
 const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
 
   const gridDescriptionStyle = {
-      background: isSelected ? 'rgba(255, 151, 151, 0.75)' : 'transparent',
+      background: isSelected ? 'rgba(255, 151, 151, 0.9)' : 'transparent',
       color: isSelected ? 'rgb(0, 0, 0)' : 'rgba(0, 0, 0, 0)', 
   };
     const className = `grid-item ${isSelected ? 'selected' : 'unselected'} ${isFlipping ? 'flipping' : ''}`;
     return (
       <div className={className} onClick={() => onClick(item.id)}>
-        <div
+        <div 
           className="grid-background"
           style={{ backgroundImage: `url(${item.imageSrc})` }}
         >
           <div className="grid-description" style={gridDescriptionStyle}>
             {isSelected && item.description}
-            {isSelected && <button className='grid-link-button'>Go</button>}
+            {isSelected &&
+              <Link href={item.link}>
+                <div className="grid-link-button-container">
+                  <div className="grid-link-button"><a>Read More</a></div>
+                </div>
+              </Link>
+            }
             
           </div>
           <div className="grid-name">
@@ -43,6 +50,8 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const itemsToShow = items.slice(startIndex, endIndex);
+    const flipDuration = 1000;
+    let isCurrentlyFlipping = false;
   
 
     const handleItemClick = (id) => {
@@ -70,7 +79,7 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
 
       flipTimeoutRef.current = setTimeout(() => {
         setIsFlipping(false);
-      }, 1000);
+      }, flipDuration);
 
       const tabWidth = scrollerRef.current.offsetWidth / pageCount;
       setIndicatorLeft((Number(event.target.value) - 1) * tabWidth);
@@ -79,7 +88,6 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
 
     useEffect(() => {
       const handleResize = () => {
-        // Recalculate the indicator position based on the new scroller width
         const tabWidth = scrollerRef.current.offsetWidth / pageCount;
         setIndicatorLeft((currentPage - 1) * tabWidth);
       };
@@ -103,12 +111,10 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
     };
     
     const onDrag = (event) => {
-      if (dragging && event.clientX !== 0) {
-        if (scrollerRef.current && indicatorRef.current) {
+      if (dragging && event.clientX !== 0 && scrollerRef.current && indicatorRef.current) {
           const newLeft = event.clientX - dragStartX;
           const maxLeft = scrollerRef.current.offsetWidth - indicatorRef.current.offsetWidth;
           setIndicatorLeft(Math.max(0, Math.min(newLeft, maxLeft)));
-        }
       }
     };
     
@@ -117,10 +123,21 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
       const closestTab = Math.round(indicatorLeft / tabWidth);
       setIndicatorLeft(closestTab * tabWidth);
       setCurrentPage(closestTab + 1);
-      setIsFlipping(true);
-      flipTimeoutRef.current = setTimeout(() => {
-        setIsFlipping(false);
-      }, 1000);
+      
+      if (!isCurrentlyFlipping) {
+        isCurrentlyFlipping = true;
+        setIsFlipping(true);
+
+        if (flipTimeoutRef.current) {
+          clearTimeout(flipTimeoutRef.current);
+        }
+
+        flipTimeoutRef.current = setTimeout(() => {
+          setIsFlipping(false);
+          isCurrentlyFlipping = false;
+        }, flipDuration);
+      }
+      
     };
 
     

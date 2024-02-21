@@ -14,61 +14,62 @@ import 'aos/dist/aos.css';
 const gridItems = [
   {
     id: 1,
-    imageSrc: '/images/projects.jpg',
+    imageSrc: '/images/projects/stunna-persona-project.webp',
     content: 'Stunna Persona',
     description: 'Explore Stunna Persona, my gym clothing brand.',
     language: ['HTML', 'CSS', 'JS'],
+    link: '/contact/'
   },
   {
     id: 2,
-    imageSrc: '/images/projects.jpg',
+    imageSrc: '/images/projects/sumdinger.webp',
     content: 'Sumdinger',
-    description: 'Simple dice game implemented',
+    description: 'Simple dice game bounds by the rules of getting 2 random die and using their sum to try and clear all 12 combinations.',
     language: ['Swift'],
+    link: '/contact/'
   },
   {
     id: 3,
-    imageSrc: '/images/projects.jpg',
+    imageSrc: '/images/projects/qvardle.webp',
     content: 'Qvardle',
-    description: 'Wordle variant with slightly different rules',
-    language: ['Swift'],
+    description: 'Wordle variant with slightly different rules.',
+    language: ['Swift'], 
+    link: '/contact/'
   },
   {
     id: 4,
-    imageSrc: '/images/projects.jpg',
-    content: 'Content for item 4',
-    description: 'Blank'
+    imageSrc: '/images/projects/eu-reader.webp',
+    content: 'EU Reader',
+    description: 'Augmented reality application that displays useful information about Elon University by scanning image targets and displaying it as a book.',
+    language: ['C-Sharp'], 
+    link: '/contact/'
   },
   {
     id: 5,
-    imageSrc: '/images/projects.jpg',
-    content: 'Content for item 5',
-    description: 'Blank'
+    imageSrc: '/images/projects/compleo.webp',
+    content: 'Compleo',
+    description: 'Productivity app that uses your tracked daily feelings and other data to produce a logical schedule for your day by day needs.',
+    language: ['React Native'], 
+    link: '/contact/'
   },
   {
     id: 6,
     imageSrc: '/images/projects.jpg',
-    content: 'Content for item 6',
-    description: 'Blank'
+    content: 'EU Reader',
+    description: 'Augmented reality application that displays useful information about Elon University by scanning image targets and displaying it as a book.',
+    language: ['C-Sharp'], 
+    link: '/contact/'
   },
+
   {
     id: 7,
     imageSrc: '/images/projects.jpg',
     content: 'Content for item 7',
-    description: 'Blank'
+    description: 'Blank',
+    language: ['Swift'], 
+    link: '/contact/'
   },
-  {
-    id: 8,
-    imageSrc: '/images/projects.jpg',
-    content: 'Content for item 8',
-    description: 'Blank'
-  },
-  {
-    id: 9,
-    imageSrc: '/images/projects.jpg',
-    content: 'Content for item 9',
-    description: 'Blank'
-  },
+  
 ];
 
 export default function Home() {

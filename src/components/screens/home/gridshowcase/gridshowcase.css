@@ -77,12 +77,14 @@
 }
 
 .tab:checked + .tab_label {
+    user-select: none;
     background-color: #ffa500; 
     border-color: #000; 
 }
 
 
 .tab:not(:checked) + .tab_label {
+    user-select: none;
     background-color: transparent;
     border-color: transparent;
 }
@@ -119,7 +121,7 @@
 }
 
 .grid-container {
-    height: 70vh;
+    height: 50vh;
     width: 75%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -145,25 +147,24 @@
     cursor: pointer;
     position: relative;
     backface-visibility: hidden;
-    transition: opacity 0.5s ease;
 }
 
 .grid-item.flipping {
-    animation: flipInX 1s forwards; 
-    transition: opacity 0.5s ease;
+    animation: flipInX 1s ease-in-out forwards; 
+    transition: opacity 1s ease-in-out;
 }
 
 .grid-item.selected {
     z-index: 999;
-    transform: scale(1.75);
+    transform: scale(1.25);
     transform-origin: center;
     border: 5px solid red;
-    transition: transform 0.25s ease, border 0.5s ease, opacity 0.5s ease, z-index 1s ease;
+    transition: transform 0.25s ease, border 0.5s ease, opacity 0.75s ease-in-out, z-index 1s ease;
 }
 .grid-item.unselected {
-    border: 2.5px solid black;
     opacity: 0.75;
-    transition: transform 1s ease, border 0.5s ease, opacity 2s ease, z-index 2s ease;
+    border: 2.5px solid black;
+    transition: transform 1s ease, border 0.5s ease, opacity 2s ease-in-out, z-index 2s ease;
 }
   
 .grid-background {
@@ -193,8 +194,8 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: calc(50% - 40px);
-    bottom: 50%;
+    width: calc(80% - 40px);
+    bottom: 25%;
     border-radius: 10px;
     padding: 20px;
     box-sizing: border-box;
@@ -202,22 +203,126 @@
     text-align: center;
 }
 
-.grid-link-button {
-    color: #090909;
-    padding: 0.5em 1em;
+
+.grid-link-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 200px;
+  }
+  
+  .grid-link-button-container .grid-link-button {
+    height: 50px;
     margin: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    width: 155px;
+  }
+  
+  .grid-link-button-container .grid-link-button a {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+    border-top: 1px solid rgb(148, 148, 148);
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(99, 99, 99, 0.7);
+    color: #000;
+    display: flex;
     font-size: 18px;
-    border-radius: 0.5em;
-    background: #e8e8e8;
-    cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    transition: all 0.3s;
-    box-shadow: 6px 6px 12px #5f5f5f, -6px -3px 20px #ffffff;
-}
-
-.grid-link-button:hover {
-    background-color: rgba(255, 70, 70, 0.8);
-    box-shadow: 6px 6px 12px #5f5f5f, -2px -3px 10px #000000;
-    transition: all 0.3s;
-}
-
+    font-weight: 700;
+    left: 0;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    z-index: 1;
+    transition: 0.5s;
+  }
+  
+  .grid-link-button-container .grid-link-button:hover a {
+    letter-spacing: 2.5px;
+    color: #fff;
+    border: 1px solid;
+  }
+  
+  .grid-link-button-container .grid-link-button a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left,
+                  rgba(255, 0, 0, 0.25),
+                  transparent);
+    transform: skewX(45deg) translateX(0);
+    transition: 0.5s;
+  }
+  
+  .grid-link-button-container .grid-link-button:hover a::before {
+    transform: skewX(45deg) translateX(200%);
+  }
+  
+  .grid-link-button-container .grid-link-button::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+    height: 0.5px;
+    width: 15px;
+    background: rgb(8, 107, 183);
+    border-radius: 10px;
+    transition: 0.5s;
+    transition-delay: 0s;
+  }
+  
+  .grid-link-button-container .grid-link-button:hover::before {
+    bottom: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+    transition-delay: 0.05s;
+  }
+  
+  .grid-link-button-container .grid-link-button::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    height: 0.5px;
+    width: 15px;
+    background: rgb(255, 123, 0);
+    border-radius: 10px;
+    transition: 0.5s;
+    transition-delay: 0s;
+  }
+  
+  .grid-link-button-container .grid-link-button:hover::after {
+    top: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+    transition-delay: 0.05s;
+  }
+  
+  .grid-link-button-container .grid-link-button:nth-child(1):before,
+  .grid-link-button-container .grid-link-button:nth-child(1)::after {
+    background: #700000;
+    box-shadow: 0 0 5px #700000,
+      0 0 5px #700000,
+      0 0 15px #700000,
+      0 0 30px #700000;
+  }
+  
+  .grid-link-button-container .grid-link-button:active a {
+    color: #000;
+  }
+  
