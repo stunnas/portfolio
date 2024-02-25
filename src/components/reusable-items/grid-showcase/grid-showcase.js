@@ -1,43 +1,37 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import './gridShowcase.css';
+import './grid-showcase.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const ITEMS_PER_PAGE = 3;
+const ITEMS_PER_PAGE = 1;
 
-const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
+const GridItem = ({ item, isFlipping }) => {
 
-  const gridDescriptionStyle = {
-      background: isSelected ? 'rgba(255, 151, 151, 0.9)' : 'transparent',
-      color: isSelected ? 'rgb(0, 0, 0)' : 'rgba(0, 0, 0, 0)', 
-  };
-    const className = `grid-item ${isSelected ? 'selected' : 'unselected'} ${isFlipping ? 'flipping' : ''}`;
-    return (
-      <div className={className} onClick={() => onClick(item.id)}>
+    const className = `grid-item ${isFlipping ? 'flipping' : ''}`;
+
+    const content = item.type === 'image' ? (
         <div 
-          className="grid-background"
-          style={{ backgroundImage: `url(${item.imageSrc})` }}
-        >
-          <div className="grid-description" style={gridDescriptionStyle}>
-            {isSelected && item.description}
-            {isSelected &&
-              <Link href={item.link}>
-                <div className="grid-link-button-container">
-                  <div className="grid-link-button"><a>Read More</a></div>
-                </div>
-              </Link>
-            }
-            
-          </div>
-          <div className="grid-name">
-            {item.content}
-          </div>
+            className="grid-background" 
+            style={{ backgroundImage: `url(${item.src})` }}
+        />
+    ) : item.type === 'video' ? (
+        <video className="grid-background" autoPlay loop muted playsInline>
+            <source src={item.src} type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    ) : null;
+
+    return (
+        <div className={className}>
+            {content}
         </div>
-      </div>
     );
+
 };
   
   const GridShowcase = ({ items }) => {
-    const [selectedId, setSelectedId] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [isFlipping, setIsFlipping] = useState(false);
     const [dragging, setDragging] = useState(false);
@@ -53,10 +47,9 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
     const flipDuration = 1000;
     let isCurrentlyFlipping = false;
   
-
-    const handleItemClick = (id) => {
-      setSelectedId(selectedId === id ? null : id);
-    };
+    useEffect(() => {
+      AOS.init({ duration: 1000, once: false, mirror: true, offset: -250 });
+    }, []);
 
     useEffect(() => {
       const currentTimeout = flipTimeoutRef.current;
@@ -145,17 +138,14 @@ const GridItem = ({ item, isSelected, isFlipping, onClick }) => {
     
     
     return (
-      <div className='projects-container'>
+      <div data-aos='zoom-in-up' className='items-container'>
          <div className="grid-container">
           {itemsToShow.map((item) => (
             <GridItem
               key={item.id}
               item={item}
-              isSelected={selectedId === item.id}
-              onClick={() => handleItemClick(item.id)}
               isFlipping={isFlipping}
             />
-              
           ))}
         </div>
         <div className="pagination-controls">

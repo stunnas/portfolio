@@ -3,8 +3,7 @@ import './styles.css';
 import React, {useEffect} from 'react';
 import Header from '@/components/reusable-items/header/header.js';
 import Hero from '@/components/screens/home/hero/hero';
-import Intro from '@/components/screens/home/intro/intro';
-import GridShowcase from '@/components/screens/home/gridshowcase/gridshowcase';
+import ProjectsShowcase from '@/components/screens/home/projects-showcase/projects-showcase';
 import Skills from '@/components/screens/home/skills/skills';
 import Fullpage, { FullPageSections, FullpageSection, FullpageNavigation} from '@ap.cx/react-fullpage';
 import AOS from 'aos';
@@ -14,6 +13,14 @@ import 'aos/dist/aos.css';
 const gridItems = [
   {
     id: 1,
+    imageSrc: '/images/projects/eu-reader.webp',
+    content: 'EU Reader',
+    description: 'Augmented reality application that displays useful information about Elon University by scanning image targets and displaying it as a book.',
+    language: ['C-Sharp'], 
+    link: '/projects/eu-reader'
+  },
+  {
+    id: 2,
     imageSrc: '/images/projects/stunna-persona-project.webp',
     content: 'Stunna Persona',
     description: 'Explore Stunna Persona, my gym clothing brand.',
@@ -21,29 +28,22 @@ const gridItems = [
     link: '/contact/'
   },
   {
-    id: 2,
+    id: 3,
     imageSrc: '/images/projects/sumdinger.webp',
     content: 'Sumdinger',
     description: 'Simple dice game bounds by the rules of getting 2 random die and using their sum to try and clear all 12 combinations.',
     language: ['Swift'],
-    link: '/contact/'
+    link: '/projects/sumdinger'
   },
   {
-    id: 3,
+    id: 4,
     imageSrc: '/images/projects/qvardle.webp',
     content: 'Qvardle',
     description: 'Wordle variant with slightly different rules.',
     language: ['Swift'], 
     link: '/contact/'
   },
-  {
-    id: 4,
-    imageSrc: '/images/projects/eu-reader.webp',
-    content: 'EU Reader',
-    description: 'Augmented reality application that displays useful information about Elon University by scanning image targets and displaying it as a book.',
-    language: ['C-Sharp'], 
-    link: '/contact/'
-  },
+  
   {
     id: 5,
     imageSrc: '/images/projects/compleo.webp',
@@ -90,7 +90,7 @@ export default function Home() {
       <Header/>
       <div className='mainBody'>
         <Hero/>
-        <GridShowcase items={gridItems}/>
+        <ProjectsShowcase items={gridItems}/>
         <Skills/>
       </div>
       {/* <Fullpage>
@@ -100,7 +100,7 @@ export default function Home() {
             <Hero/>
           </FullpageSection>
           <FullpageSection style={SectionStyle}>
-            <Intro/>
+            <GridShowcase items={gridItems}/>
           </FullpageSection>
           <FullpageSection style={{...SectionStyle, backgroundColor: 'lightblue'}}>
             <Skills/>

@@ -1,0 +1,171 @@
+.items-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.items-container .grid-container {
+    height: 50vh;
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    position: relative;
+}
+
+.items-container .grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.items-container .grid-item.flipping {
+  animation: flipInX 1s ease-in-out forwards; 
+  transition: opacity 1s ease-in-out;
+}
+
+.items-container .grid-background {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.items-container .grid-background video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes flipInX {
+    from {
+      transform: perspective(800px) rotateY(90deg);
+      opacity: 0;
+    }
+    to {
+      transform: perspective(800px) rotateY(0deg);
+      opacity: 1;
+    }
+}
+  
+.items-container .pagination-controls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  width: 75%;
+
+}
+
+.items-container .tab-container {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2px;
+  border-radius: 9px;
+}
+
+.items-container .scroller {
+  content: "";
+  width: 100%; 
+  height: 15px;
+  opacity: 0.4;
+  background: #888;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 7px;
+}
+
+.items-container .scroller:active {
+  cursor: grabbing;
+}
+
+.items-container .indicator {
+  content: "";
+  width: calc(100% / 2);
+  height: 15px;
+  background: #00aeff;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  z-index: 9;
+  border: 0.5px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12), 0px 3px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 7px;
+  cursor: grab;
+}
+
+.items-container .indicator:active {
+  cursor: grabbing;
+}
+
+.items-container .tab {
+  width: auto;
+  height: auto;
+  z-index: 2;
+  border: 1px solid;
+  outline: none;
+  opacity: 0;
+}
+
+.tab:checked + .tab_label {
+  user-select: none;
+  color: #fff;
+  background-color: #00aeff; 
+  border-color: #000; 
+}
+
+
+.tab:not(:checked) + .tab_label {
+  user-select: none;
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.items-container .tab_label {
+  width: 20px;
+  position: relative;
+  flex: 1;
+  z-index: 2;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 5px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.items-container .tab--1:checked ~ .indicator {
+  left: 0;
+}
+
+.items-container .tab--2:checked ~ .indicator {
+  left: 50%;
+}

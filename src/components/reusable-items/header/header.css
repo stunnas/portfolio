@@ -34,6 +34,7 @@ header {
     gap: 1rem;
 }
 
+
 .logo .spinner {
     height: 22px;
     width: 22px;
@@ -58,13 +59,31 @@ header h1 {
 }
 
 
+.hamburger {
+    display: none; 
+    background-color: var(--hover-bg-color);
+    border: white 1px solid;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 nav {
-    display: flex;
+    display: none;
+    position: absolute; /* Position absolutely for dropdown */
+    width: 100%; /* Full width */
+    flex-direction: column; /* Stack items vertically */
+    gap: 0; /* Adjust gap as needed */
+    padding: 0; /* Adjust padding as needed */
+    top: 50px; /* Adjust based on the header's height */
+    left: 0;
     padding: 2.5px;
     gap: 50px;
     border-radius: 10px;
     background-color: var(--secondary-color);
+}
+
+nav.show {
+    display: flex;
 }
 
 nav a {
@@ -107,4 +126,45 @@ header button svg {
 }
 header button:hover {
     background-color: var(--hover-color);
+}
+
+.resume-download {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; 
+    }
+
+    nav {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    nav a {
+        text-align: center;
+    }
+
+    nav.show {
+        display: flex; 
+    }
+
+    .resume-download {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    nav {
+        display: flex; 
+        position: static;
+        flex-direction: row;
+        width: auto;
+        gap: 20px; 
+    }
+
+    .hamburger {
+        display: none;
+    }
 }
