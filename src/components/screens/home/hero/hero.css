@@ -27,7 +27,7 @@
     
 }
 
-.hero-container .hero-info .title {
+.hero-container .hero-info .hero-title {
     width: 100%;
     height: 100%;
     display: flex;
@@ -35,6 +35,7 @@
     justify-content: center;
     align-items: flex-start;
     margin: 0 0 -25% 0;
+    color: #000;
 }
 
 .hero-container .hero-info h2 {
@@ -46,7 +47,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 0% 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .hero-container .hero-info .option-links button {

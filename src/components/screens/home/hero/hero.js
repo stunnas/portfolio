@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <div data-aos="zoom-in-up" className='hero-container hero-background'>
       <div className='hero-info'>
-        <div className='title'>
+        <div className='hero-title'>
           <h1>Chase Albritton</h1>
           <h2>Frontend + Game Developer</h2>
           <p>I'm a dedicated Computer Science student with a fiery passion for gaming. My journey in programming has been driven by my fascination with creating and exploring virtual worlds. From developing intricate game mechanics to designing compelling narratives, every line of code I write is a step towards bringing these digital universes to life. In my quest, I continually strive to merge creativity with technology, ensuring every pixel serves a purpose and contributes to an immersive, engaging experience.</p>
