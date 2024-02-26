@@ -11,6 +11,20 @@ const GridItem = ({ item, isFlipping }) => {
 
     const className = `grid-item ${isFlipping ? 'flipping' : ''}`;
 
+    const determineVideoType = (src) => {
+      const extension = src.split('.').pop();
+      switch (extension) {
+        case 'mp4':
+          return 'video/mp4';
+        case 'webm':
+          return 'video/webm';
+        case 'ogg':
+          return 'video/ogg';
+        default:
+          return 'video/mp4';
+      }
+    };
+
     const content = item.type === 'image' ? (
         <div 
             className="grid-background" 
@@ -18,7 +32,7 @@ const GridItem = ({ item, isFlipping }) => {
         />
     ) : item.type === 'video' ? (
         <video className="grid-background" autoPlay loop muted playsInline>
-            <source src={item.src} type="video/mp4" />
+            <source src={item.src} type={determineVideoType(item.src)} />
             Your browser does not support the video tag.
         </video>
     ) : null;

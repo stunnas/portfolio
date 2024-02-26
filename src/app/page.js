@@ -21,19 +21,19 @@ const gridItems = [
   },
   {
     id: 2,
-    imageSrc: '/images/projects/stunna-persona-project.webp',
-    content: 'Stunna Persona',
-    description: 'Explore Stunna Persona, my gym clothing brand.',
-    language: ['HTML', 'CSS', 'JS'],
-    link: '/contact/'
-  },
-  {
-    id: 3,
     imageSrc: '/images/projects/sumdinger.webp',
     content: 'Sumdinger',
     description: 'Simple dice game bounds by the rules of getting 2 random die and using their sum to try and clear all 12 combinations.',
     language: ['Swift'],
     link: '/projects/sumdinger'
+  },
+  {
+    id: 3,
+    imageSrc: '/images/projects/stunna-persona-project.webp',
+    content: 'Stunna Persona',
+    description: 'Explore Stunna Persona, my gym clothing brand.',
+    language: ['HTML', 'CSS', 'JS'],
+    link: '/contact/'
   },
   {
     id: 4,

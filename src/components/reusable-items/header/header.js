@@ -53,9 +53,9 @@ const Header = () => {
                 <Link href='/about' className={isActive('/about') ? 'active' : ''}>About</Link>
                 <Link href='/contact' className={isActive('/contact') ? 'active' : ''}>Contact</Link>
             </nav>
-            <button className='resume-download'>Resume
+            <a href='/images/resume.pdf' className='resume-download' download="chase_albritton_resume.pdf">Resume
                 <DownloadSVG/>
-            </button>
+            </a>
         </header>
     )
 }

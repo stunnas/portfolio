@@ -106,7 +106,7 @@ nav a:hover {
     transition: color 0.3s, background-color 0.3s;
 }
 
-header button {
+header button, .resume-download {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,12 +119,15 @@ header button {
     transition: background-color 0.3s;
 }
 
-header button svg {
+.resume-download {
+    text-decoration: none;
+}
+.resume-download svg {
     height: var(--nav-link-size);
     width: auto;
     margin-left: 10px;
 }
-header button:hover {
+.resume-download:hover {
     background-color: var(--hover-color);
 }
 

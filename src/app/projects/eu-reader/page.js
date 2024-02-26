@@ -15,7 +15,7 @@ const gridItems = [
     {
         id: 2,
         type: 'video',
-        src: '/videos/EUReader.mp4',
+        src: '/videos/eu-reader.mp4',
     },
 ]
 

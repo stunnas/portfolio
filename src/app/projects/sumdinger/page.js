@@ -9,13 +9,13 @@ import GridShowcase from '@/components/reusable-items/grid-showcase/grid-showcas
 const gridItems = [
     {
         id: 1,
-        type: 'image',
-        src: '/images/projects/sumdinger.webp',
+        type: 'video',
+        src: '/videos/sumdinger-preview.webm',
     },
     {
         id: 2,
         type: 'video',
-        src: '/videos/EUReader.mp4',
+        src: '/videos/sumdinger-preview.mp4',
     },
 ]
 
@@ -25,11 +25,11 @@ export default function Sumdinger() {
 
     useEffect(() => {
         // Add a class to the body when the component mounts
-        document.body.classList.add('eu-reader');
+        document.body.classList.add('sumdinger');
     
         // Remove the class when the component unmounts
         return () => {
-          document.body.classList.remove('eu-reader');
+          document.body.classList.remove('sumdinger');
         };
     }, []);
 
@@ -55,18 +55,19 @@ export default function Sumdinger() {
                     <iframe src="https://gifer.com/embed/b8y" allowFullScreen />
                     <div className="nonClickableOverlay"/>
                 </div>
-                <div className='reader-showcase'>
-                    <div className='reader-info'>
-                        <h1 className='eu-title'>Sumdinger</h1>
+                <div className='project-showcase'>
+                    <div className='project-info'>
+                        <h1 className='title'>Sumdinger</h1>
                         {renderContent()}
-                        <div className='reader-content-buttons'>
+                        <div className='project-content-buttons'>
                             <button onClick={() => changeContent('description')}>Description<div/></button>
                             <button onClick={() => window.open('https://github.com', '_blank')} style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px'}}>GitHub <img alt="external link" src="/images/logos/link.png" style={{filter: 'invert()'}}/><div/></button>
                         </div>
                     </div>
-                    <div className='reader-grid'>
-                        <GridShowcase items={gridItems}/>
-                    </div>
+                    <video className="iphone-preview" autoPlay loop muted playsInline>
+                        <source src='/videos/sumdinger-preview.webm' type='video/webm'/>
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
