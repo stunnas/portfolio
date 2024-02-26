@@ -33,7 +33,7 @@ const gridItems = [
     content: 'Stunna Persona',
     description: 'Explore Stunna Persona, my gym clothing brand.',
     language: ['HTML', 'CSS', 'JS'],
-    link: '/contact/'
+    link: 'https://7k3czp3w-8080.use.devtunnels.ms/home.html'
   },
   {
     id: 4,
